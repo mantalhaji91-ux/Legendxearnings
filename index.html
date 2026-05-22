@@ -3,50 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEGENDS EARNING PRO</title>
+    <title>LEGENDS EARN PRO</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             --bg-dark: #070709;
             --card-bg: #111115;
             --accent-neon: #ff0055;
-            --accent-gold: #ffaa00;
+            --accent-gold: #ffa800;
             --text-main: #ffffff;
-            --text-muted: #8e8e9a;
+            --text-muted: #8a8e9a;
             --input-bg: #16161f;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Rajdhani', sans-serif; }
         body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; }
-        
-        /* Utility Classes */
+
         .hidden { display: none !important; }
-        
-        /* Modern Header */
+
         header { background: #000; padding: 18px; text-align: center; border-bottom: 2px solid var(--accent-neon); box-shadow: 0 0 15px rgba(255, 0, 85, 0.3); }
         .logo { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; text-shadow: 0 0 8px var(--accent-neon); }
         .logo span { color: var(--accent-gold); text-shadow: 0 0 8px var(--accent-gold); }
 
         .container { max-width: 550px; margin: 30px auto; padding: 0 20px; }
 
-        /* Auth Forms Styling (Login / Signup) */
-        .auth-card { background: var(--card-bg); border-radius: 16px; padding: 30px; border: 1px solid #22222a; box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
-        .auth-card h2 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; margin-bottom: 20px; text-align: center; color: var(--accent-gold); }
-        
+        .auth-card { background: var(--card-bg); border-radius: 16px; padding: 30px; border: 1px solid #22222a; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .auth-card h2 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; margin-bottom: 25px; text-align: center; color: var(--accent-gold); letter-spacing: 1px; }
+
         .form-group { margin-bottom: 18px; }
-        .form-group label { display: block; font-size: 1rem; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; font-weight: 600; }
-        .form-group input, .form-group select { width: 100%; background: var(--input-bg); border: 1px solid #2d2d38; padding: 12px; font-size: 1.1rem; color: #fff; border-radius: 8px; transition: 0.3s; }
+        .form-group label { display: block; font-size: 1rem; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; font-weight: 6px; }
+        .form-group input, .form-group select { width: 100%; background: var(--input-bg); border: 1px solid #2d2d38; padding: 14px; border-radius: 8px; color: #fff; font-size: 1.1rem; transition: all 0.3s; }
         .form-group input:focus { border-color: var(--accent-neon); outline: none; box-shadow: 0 0 10px rgba(255, 0, 85, 0.2); }
-        
-        .auth-toggle { text-align: center; margin-top: 15px; color: var(--text-muted); font-size: 1rem; }
+
+        .auth-toggle { text-align: center; margin-top: 15px; font-size: 1rem; color: var(--text-muted); }
         .auth-toggle span { color: var(--accent-neon); cursor: pointer; font-weight: bold; }
 
-        /* Dashboard & Pro Layout */
-        .pro-dashboard { background: linear-gradient(145deg, #121218, #0a0a0f); border-radius: 16px; padding: 25px; border: 1px solid #1f1f28; position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+        .pro-dashboard { background: linear-gradient(145deg, #121218, #0a0a0f); border-radius: 16px; padding: 25px; border: 1px solid #1f1f28; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
         .user-welcome { font-size: 1.1rem; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; }
         .user-title { font-family: 'Orbitron', sans-serif; font-size: 1.7rem; font-weight: bold; margin-bottom: 20px; }
-        
+
         .main-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px; }
         .stat-card { background: #171722; border: 1px solid #282836; border-radius: 12px; padding: 15px; text-align: center; }
         .stat-title { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; }
@@ -54,32 +50,25 @@
         #userBalance { color: var(--accent-gold); }
         #userClicks { color: var(--accent-neon); }
 
-        /* Navigation Tabs Inside Dashboard */
-        .dash-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 25px; }
-        .tab-btn { background: #171722; border: 1px solid #282836; color: #fff; padding: 12px; font-size: 1.1rem; font-weight: 700; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: 0.2s; }
+        .dash-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+        .tab-btn { background: #171722; border: 1px solid #282836; color: #fff; padding: 12px; font-size: 1.1rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s; }
         .tab-btn.active { background: var(--accent-neon); border-color: var(--accent-neon); box-shadow: 0 4px 12px rgba(255, 0, 85, 0.3); }
 
-        /* Task Elements */
-        .task-node { background: var(--card-bg); border: 1px solid #1f1f28; border-radius: 12px; padding: 18px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+        .task-node { background: var(--card-bg); border: 1px solid #1f1f28; border-radius: 12px; padding: 18px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; transition: transform 0.2s; }
         .task-node:hover { border-color: var(--accent-neon); }
         .task-meta h4 { font-size: 1.2rem; font-weight: 600; margin-bottom: 4px; }
         .task-meta p { color: var(--accent-gold); font-weight: 700; font-size: 1rem; }
 
-        /* Buttons Styling */
-        .action-btn { background: linear-gradient(135deg, var(--accent-neon), #c30042); color: white; border: none; padding: 10px 18px; font-size: 1rem; font-weight: 700; border-radius: 6px; cursor: pointer; text-transform: uppercase; transition: 0.2s; }
-        .action-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 0, 85, 0.4); }
-        .action-btn:disabled { background: #22222a; color: var(--text-muted); cursor: not-allowed; transform: none; box-shadow: none; }
+        .action-btn { background: linear-gradient(135deg, var(--accent-neon), #c30042); color: white; border: none; padding: 10px 18px; font-size: 1rem; font-weight: 700; border-radius: 6px; cursor: pointer; box-shadow: 0 5px 15px rgba(255, 0, 85, 0.4); }
+        .action-btn:disabled { background: #22222a; color: var(--text-muted); cursor: not-allowed; box-shadow: none; }
         .full-btn { width: 100%; padding: 14px; font-size: 1.2rem; font-family: 'Orbitron', sans-serif; margin-top: 10px; }
 
-        /* Real PTC Overlays */
-        .overlay-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4,4,6,0.97); display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 0; pointer-events: none; transition: 0.3s; }
-        .overlay-screen.active { opacity: 1; pointer-events: auto; }
-        .modal-box { background: var(--card-bg); border: 2px solid var(--accent-neon); padding: 30px; border-radius: 16px; text-align: center; max-width: 400px; width: 85%; }
+        .overlay-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4,4,6,0.97); display: flex; justify-content: center; align-items: center; z-index: 9999; }
+        .modal-box { background: #111115; padding: 30px; border-radius: 16px; text-align: center; max-width: 400px; width: 85%; border: 1px solid var(--accent-neon); }
         .timer-val { font-family: 'Orbitron', sans-serif; font-size: 3.5rem; font-weight: 800; color: var(--accent-gold); margin: 15px 0; }
 
-        /* System Toast Alerts */
-        .toast-msg { position: fixed; bottom: 20px; right: -350px; background: #171722; border-left: 4px solid var(--accent-gold); padding: 16px 24px; border-radius: 6px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); font-weight: bold; transition: 0.4s; z-index: 100000; }
-        .toast-msg.pop { right: 20px; }
+        .toast-msg { position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #171722, #0d0d13); border-left: 4px solid var(--accent-gold); padding: 15px 25px; border-radius: 6px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 99999; font-weight: 600; font-size: 1.1rem; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .toast-msg.active { bottom: 30px; }
     </style>
 </head>
 <body>
@@ -89,101 +78,103 @@
     </header>
 
     <div class="container">
-
-        <div class="auth-card" id="signupScreen">
-            <h2>CREATE LEGEND ACCOUNT</h2>
-            <div class="form-group">
-                <label>Full Name</label>
-                <input type="text" id="supName" placeholder="Enter full name">
-            </div>
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" id="supEmail" placeholder="name@domain.com">
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" id="supPass" placeholder="••••••••">
-            </div>
-            <button class="action-btn full-btn" onclick="handleSignup()">REGISTER NOW</button>
-            <div class="auth-toggle">Already a legend? <span onclick="switchAuth('login')">Login</span></div>
-        </div>
-
-        <div class="auth-card hidden" id="loginScreen">
-            <h2>ACCOUNT LOG IN</h2>
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" id="linEmail" placeholder="name@domain.com">
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" id="linPass" placeholder="••••••••">
-            </div>
-            <button class="action-btn full-btn" onclick="handleLogin()">LOG IN</button>
-            <div class="auth-toggle">New to the platform? <span onclick="switchAuth('signup')">Sign Up</span></div>
-        </div>
-
-        <div class="hidden" id="dashboardScreen">
-            <div class="pro-dashboard">
-                <div class="user-welcome">Welcome Commander,</div>
-                <div class="user-title" id="profileName">LEGEND USER</div>
-                
-                <div class="main-stats">
-                    <div class="stat-card"><div class="stat-title">Available Cash</div><div class="stat-number" id="userBalance">points. 0</div></div>
-                    <div class="stat-card"><div class="stat-title">Ads Authenticated</div><div class="stat-number" id="userClicks">0/3</div></div>
+        <div id="authSection" class="auth-card">
+            <div id="signupForm">
+                <h2>CREATE LEGEND ACCOUNT</h2>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="supName" placeholder="MR Rizwan">
                 </div>
-
-                <div class="dash-nav">
-                    <button class="tab-btn active" id="tabTasksBtn" onclick="togglePanelTab('tasks')">Ads Terminal</button>
-                    <button class="tab-btn" id="tabWithdrawBtn" onclick="togglePanelTab('withdraw')">Withdrawal</button>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="supEmail" placeholder="name@domain.com">
                 </div>
-
-                <div id="tabTasksArea">
-                    <div class="task-node" id="node1">
-                        <div class="task-meta"><h4>Sponsor Video Link</h4><p>Payout: points. 200</p></div>
-                        <button class="action-btn" onclick="executeAdView('node1', 200)">Launch Ad</button>
-                    </div>
-                    <div class="task-node" id="node2">
-                        <div class="task-meta"><h4>Premium Megabanner View</h4><p>Payout: points. 300</p></div>
-                        <button class="action-btn" onclick="executeAdView('node2', 300)">Launch Ad</button>
-                    </div>
-                    <div class="task-node" id="node3">
-                        <div class="task-meta"><h4>Crypto Partner Visit</h4><p>Payout: points. 350</p></div>
-                        <button class="action-btn" onclick="executeAdView('node3', 350)">Launch Ad</button>
-                    </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="supPass" placeholder="••••••••">
                 </div>
+                <button class="action-btn full-btn" onclick="handleSignup()">REGISTER NOW</button>
+                <div class="auth-toggle">Already a legend? <span onclick="switchAuth('login')">Login</span></div>
+            </div>
 
-                <div id="tabWithdrawArea" class="hidden">
-                    <div class="form-group">
-                        <label>Select Gateway</label>
-                        <select id="wMethod">
-                            <option value="Easypaisa">Easypaisa</option>
-                            <option value="JazzCash">JazzCash</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Account Number / Phone</label>
-                        <input type="number" id="wPhone" placeholder="03XXXXXXXXX">
-                    </div>
-                    <div class="form-group">
-                        <label>Account Holder Title</label>
-                        <input type="text" id="wTitle" placeholder="Full account name">
-                    </div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">* Minimum limit for withdrawal process is points. 3000.</p>
-                    <button class="action-btn full-btn" onclick="processWithdrawRequest()">SUBMIT CASH REQUEST</button>
-                </div> 
-
-
+            <div id="loginForm" class="hidden">
+                <h2>LEGEND LOGIN</h2>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="linEmail" placeholder="name@domain.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="linPass" placeholder="••••••••">
+                </div>
+                <button class="action-btn full-btn" onclick="handleLogin()">LOG IN</button>
+                <div class="auth-toggle">New track? <span onclick="switchAuth('signup')">Sign Up</span></div>
             </div>
         </div>
 
+        <div id="dashboardSection" class="pro-dashboard hidden">
+            <div class="user-welcome">Welcome Commander,</div>
+            <div class="user-title" id="profileName">LEGEND USER</div>
+
+            <div class="main-stats">
+                <div class="stat-card">
+                    <div class="stat-title">Available Points</div>
+                    <div class="stat-number"><span id="userBalance">0</span> Pts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Ads Authenticated</div>
+                    <div class="stat-number" id="userClicks">0/3</div>
+                </div>
+            </div>
+
+            <div class="dash-nav">
+                <button class="tab-btn active" id="tabTasksBtn" onclick="togglePanelTab('tasks')">Ads Terminal</button>
+                <button class="tab-btn" id="tabWithdrawBtn" onclick="togglePanelTab('withdraw')">Withdrawal</button>
+            </div>
+
+            <div id="tabTasksArea">
+                <div class="task-node" id="node1">
+                    <div class="task-meta"><h4>Sponsor Video Link</h4><p>Payout: 200 Points</p></div>
+                    <button class="action-btn" onclick="executeAdView('node1', 200)">Launch Ad</button>
+                </div>
+                <div class="task-node" id="node2">
+                    <div class="task-meta"><h4>Premium Megabanner View</h4><p>Payout: 350 Points</p></div>
+                    <button class="action-btn" onclick="executeAdView('node2', 350)">Launch Ad</button>
+                </div>
+                <div class="task-node" id="node3">
+                    <div class="task-meta"><h4>Crypto Partner Visit</h4><p>Payout: 450 Points</p></div>
+                    <button class="action-btn" onclick="executeAdView('node3', 450)">Launch Ad</button>
+                </div>
+            </div>
+
+            <div id="tabWithdrawArea" class="hidden">
+                <div class="form-group">
+                    <label>Select Gateway</label>
+                    <select id="wMethod">
+                        <option value="Easypaisa">Easypaisa</option>
+                        <option value="JazzCash">JazzCash</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Account Number / Phone</label>
+                    <input type="number" id="wPhone" placeholder="03XXXXXXXXX">
+                </div>
+                <div class="form-group">
+                    <label>Account Holder Title</label>
+                    <input type="text" id="wTitle" placeholder="Full account name">
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">* Minimum Limit for withdrawal process is 3000 points.</p>
+                <button class="action-btn full-btn" onclick="processWithdrawRequest()">SUBMIT CASH REQUEST</button>
+            </div>
+        </div>
     </div>
 
-    <div class="overlay-screen" id="ptcSystemOverlay">
+    <div class="overlay-screen hidden" id="ptcSystemOverlay">
         <div class="modal-box">
             <h3 style="font-family:'Orbitron'; color:#fff; letter-spacing:1px;">VERIFYING PTC VIEW</h3>
             <p style="color: var(--text-muted); font-size:0.95rem; margin-top:5px;">Sponsor ad loaded in new tab. Wait for timer loop.</p>
             <div class="timer-val" id="timerClock">15</div>
-            <p style="color: var(--accent-neon); font-weight:700; letter-spacing:1px;">DO NOT EXIT CAPTCHA WINDOW</p>
+            <p style="color: var(--accent-neon); font-weight:700; letter-spacing:1px;">*DO NOT EXIT CAPTCHA WINDOW*</p>
         </div>
     </div>
 
@@ -192,38 +183,44 @@
     <script>
         // Global State Variables
         let userData = null;
-        const targetAdLink = "https://www.effectivecpmnetwork.com/vy31ex0c6w?key=df7d873640e8eeefee324a4baa87ba59";
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzfV5Ukzz7EtQTU8HGPELwBA6bcf0p20UTvvmoRMogET7tgrCKoDYoaTTH05J8VE-oh/exec";
+        const targetAdLink = "https://www.effectivecpmnetwork.com/vy31ex0c6w?key=df7d873640a8eefee324a4baa87ba59";
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfV5Ukzz7EtQTUBHGPELWBA6bcf0p2OUTvvmoMMogET7tgrCkDoYoaTTHO5J0VE-oh/exec";
 
         let pendingReward = 0;
         let pendingNodeId = '';
 
         // Auto Boot Check
-        window.onload = function() {
-            const savedUser = localStorage.getItem('active_legend_user');
-            if (savedUser) {
-                userData = JSON.parse(savedUser);
+        window.addEventListener('load', () => {
+            const localDB = localStorage.getItem('active_legend_user');
+            if (localDB) {
+                userData = JSON.parse(localDB);
                 renderDashboard();
             }
-        };
+        });
 
-        function switchAuth(type) {
-            if(type === 'login') {
-                document.getElementById('signupScreen').classList.add('hidden');
-                document.getElementById('loginScreen').classList.remove('hidden');
+        function switchAuth(mode) {
+            if (mode === 'login') {
+                document.getElementById('signupForm').classList.add('hidden');
+                document.getElementById('loginForm').classList.remove('hidden');
             } else {
-                document.getElementById('loginScreen').classList.add('hidden');
-                document.getElementById('signupScreen').classList.remove('hidden');
+                document.getElementById('loginForm').classList.add('hidden');
+                document.getElementById('signupForm').classList.remove('hidden');
             }
         }
 
-        // Logic for Signup
+        function fireToast(msg) {
+            const toast = document.getElementById('alertToast');
+            toast.innerText = msg;
+            toast.classList.add('active');
+            setTimeout(() => { toast.classList.remove('active'); }, 3500);
+        }
+
         function handleSignup() {
             const name = document.getElementById('supName').value.trim();
             const email = document.getElementById('supEmail').value.trim();
             const pass = document.getElementById('supPass').value.trim();
 
-            if(!name || !email || !pass) {
+            if (!name || !email || !pass) {
                 fireToast("Alert: Fill out all fields!");
                 return;
             }
@@ -236,59 +233,58 @@
                 clicks: 0,
                 completedNodes: []
             };
-// Data Google Sheet ko bhejne ke liye
-fetch(SCRIPT_URL + `?type=signup&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&pass=${encodeURIComponent(pass)}`, { method: 'POST' })
-  .then(res => console.log("Data Sent to Sheet"))
-  .catch(err => console.error(err));
+
+            fetch(SCRIPT_URL + `?type=signup&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&pass=${encodeURIComponent(pass)}`, { method: 'POST' })
+            .then(res => console.log("Data Sent to Sheet"))
+            .catch(err => console.error(err));
 
             localStorage.setItem('active_legend_user', JSON.stringify(userData));
             fireToast("Success: Legend Account Active!");
             renderDashboard();
-            // Logic for Withdrawal Data Submission
-function processWithdrawRequest() {
-  const wMethod = document.getElementById('wMethod').value;
-  const wPhone = document.getElementById('wPhone').value.trim();
-  const wTitle = document.getElementById('wTitle').value.trim();
-  const pAmount = userData.balance; 
-  const pTitle = "Withdraw Request";
+        }
 
-  if (!wPhone || !wTitle) {
-      fireToast("Alert: Please fill all withdrawal fields!");
-      retif (pAmount < 3000) {
-    fireToast("Alert: Minimum 3000 Points required to withdraw!");
-    return;
-}
+        function processWithdrawRequest() {
+            const wMethod = document.getElementById('wMethod').value;
+            const wPhone = document.getElementById('wPhone').value.trim();
+            const wTitle = document.getElementById('wTitle').value.trim();
+            const pAmount = userData.balance; 
+            const pTitle = "Withdraw Request";
 
-  }
+            if (!wPhone || !wTitle) {
+                fireToast("Alert: Please fill all withdrawal fields!");
+                return;
+            }
 
-  // Data Google Sheet ko bhejne ke liye (Withdrawal)
-  fetch(SCRIPT_URL + `?type=withdraw&name=${encodeURIComponent(userData.name)}&email=${encodeURIComponent(userData.email)}&method=${encodeURIComponent(wMethod)}&phone=${encodeURIComponent(wPhone)}&amount=${encodeURIComponent(pAmount)}&title=${encodeURIComponent(pTitle)}`, { method: 'POST' })
-    .then(res => {
-        fireToast("Success: Withdrawal Request Submitted!");
-        userData.balance = 0; // Balance zero karne ke liye
-        localStorage.setItem('active_legend_user', JSON.stringify(userData));
-        renderDashboard();
-    })
-    .catch(err => {
-        console.error(err);
-        fireToast("Error: Something went wrong!");
-    });
-}
+            if (pAmount < 3000) {
+                fireToast("Alert: Minimum 3000 Points required to withdraw!");
+                return;
+            }
 
-            
-        // Logic for Login
+            fetch(SCRIPT_URL + `?type=withdraw&name=${encodeURIComponent(userData.name)}&email=${encodeURIComponent(userData.email)}&method=${encodeURIComponent(wMethod)}&phone=${encodeURIComponent(wPhone)}&amount=${encodeURIComponent(pAmount)}&title=${encodeURIComponent(pTitle)}`, { method: 'POST' })
+            .then(res => {
+                fireToast("Success: Withdrawal Request Submitted!");
+                userData.balance = 0; 
+                localStorage.setItem('active_legend_user', JSON.stringify(userData));
+                renderDashboard();
+            })
+            .catch(err => {
+                console.error(err);
+                fireToast("Error: Something went wrong!");
+            });
+        }
+
         function handleLogin() {
             const email = document.getElementById('linEmail').value.trim();
             const pass = document.getElementById('linPass').value.trim();
             const localDB = localStorage.getItem('active_legend_user');
 
-            if(!localDB) {
+            if (!localDB) {
                 fireToast("Error: No account found. Signup first.");
                 return;
             }
 
             let checkUser = JSON.parse(localDB);
-            if(checkUser.email === email && checkUser.password === pass) {
+            if (checkUser.email === email && checkUser.password === pass) {
                 userData = checkUser;
                 fireToast("Welcome Back Commander!");
                 renderDashboard();
@@ -297,24 +293,27 @@ function processWithdrawRequest() {
             }
         }
 
-        // Render Panel Data securely
         function renderDashboard() {
-            document.getElementById('signupScreen').classList.add('hidden');
-            document.getElementById('loginScreen').classList.add('hidden');
-            document.getElementById('dashboardScreen').classList.remove('hidden');
-
+            document.getElementById('authSection').classList.add('hidden');
+            document.getElementById('dashboardSection').classList.remove('hidden');
+            
             document.getElementById('profileName').innerText = userData.name.toUpperCase();
-            document.getElementById('userBalance').innerText = `Rs. ${userData.balance}`;
+            document.getElementById('userBalance').innerText = userData.balance;
             document.getElementById('userClicks').innerText = `${userData.clicks}/3`;
 
-            // Setup Completed States UI Layout
+            // Reset nodes visual state securely
             userData.completedNodes.forEach(id => {
-                lockViewedNode(id);
+                const node = document.getElementById(id);
+                if (node) {
+                    const btn = node.querySelector('.action-btn');
+                    btn.disabled = true;
+                    btn.innerText = "VERIFIED";
+                }
             });
         }
 
         function togglePanelTab(tab) {
-            if(tab === 'tasks') {
+            if(tab === 'tasks'){
                 document.getElementById('tabTasksBtn').classList.add('active');
                 document.getElementById('tabWithdrawBtn').classList.remove('active');
                 document.getElementById('tabTasksArea').classList.remove('hidden');
@@ -327,131 +326,37 @@ function processWithdrawRequest() {
             }
         }
 
-        // PTC Lock Engine Loop Execution
-        function executeAdView(nodeId, payout) {
-            pendingReward = payout;
+        function executeAdView(nodeId, reward) {
+            pendingReward = reward;
             pendingNodeId = nodeId;
 
-            // Trigger real Adsterra smartlink redirection
             window.open(targetAdLink, '_blank');
 
-            const overlay = document.getElementById('ptcSystemOverlay');
-            const clock = document.getElementById('timerClock');
-            overlay.classList.add('active');
+            document.getElementById('ptcSystemOverlay').classList.remove('hidden');
+            let timeLeft = 15;
+            document.getElementById('timerClock').innerText = timeLeft;
 
-            let countdown = 15;
-            clock.innerText = countdown;
-
-            const interval = setInterval(() => {
-                countdown--;
-                clock.innerText = countdown;
-                if(countdown <= 0) {
-                    clearInterval(interval);
-                    finalizePayoutCredit();
+            const ticker = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timerClock').innerText = timeLeft;
+                if(timeLeft <= 0) {
+                    clearInterval(ticker);
+                    document.getElementById('ptcSystemOverlay').classList.add('hidden');
+                    awardPoints();
                 }
             }, 1000);
         }
 
-        function finalizePayoutCredit() {
+        function awardPoints() {
             userData.balance += pendingReward;
             userData.clicks += 1;
             userData.completedNodes.push(pendingNodeId);
 
-            // Update state engine storage
             localStorage.setItem('active_legend_user', JSON.stringify(userData));
-            
-            // Re-render interface metrics
-            document.getElementById('userBalance').innerText = `Rs. ${userData.balance}`;
-            document.getElementById('userClicks').innerText = `${userData.clicks}/3`;
-            
-            lockViewedNode(pendingNodeId);
-            document.getElementById('ptcSystemOverlay').classList.remove('active');
-            fireToast(`Credited: +Rs. ${pendingReward} Secured!`);
-        }
-
-        function lockViewedNode(id) {
-            const element = document.getElementById(id);
-            if(element) {
-                const button = element.querySelector('button');
-                button.innerText = "Verified";
-                button.disabled = true;
-                element.style.opacity = "0.4";
-            }
-        }
-
-        // Withdrawal Logic Controller 
-        function processWithdrawRequest() {
-            const method = document.getElementById('wMethod').value;
-            const phone = document.getElementById('wPhone').value.trim();
-            const title = document.getElementById('wTitle').value.trim();
-
-            if(!phone || !title) {
-                fireToast("Alert: Fill out financial details!");
-                return;
-            }
-
-            if(userData.balance < 500) {
-                fireToast("Denied: Need minimum Rs. 500 balance.");
-                return;
-            }
-
-            // Success pipeline execution emulation
-            fireToast(`Processing Rs. ${userData.balance} to ${method}!`);
-            
-            // Reset balance after success dispatch
-            userData.balance = 0;
-            userData.clicks = 0;
-            userData.completedNodes = [];
-            localStorage.setItem('active_legend_user', JSON.stringify(userData));
-            
-            setTimeout(() => {
-                location.reload();
-            }, 2500);
-        }
-
-        function fireToast(text) {
-            const toast = document.getElementById('alertToast');
-            toast.innerText = text;
-            toast.classList.add('pop');
-            setTimeout(() => { toast.classList.remove('pop'); }, 3000);
+            fireToast(`Success: +${pendingReward} Points Authenticated!`);
+            renderDashboard();
         }
     </script>
 </body>
-</html> 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEGENDS EARNING PRO + ADMIN PANEL</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-dark: #070709;
-            --card-bg: #111115;
-            --accent-neon: #ff0055;
-            --accent-gold: #ffaa00;
-            --text-main: #ffffff;
-            --text-muted: #8e8e9a;
-            --input-bg: #16161f;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Rajdhani', sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; }
-        .hidden { display: none !important; }
-        header { background: #000; padding: 18px; text-align: center; border-bottom: 2px solid var(--accent-neon); box-shadow: 0 0 15px rgba(255, 0, 85, 0.3); }
-        .logo { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; text-shadow: 0 0 8px var(--accent-neon); }
-        .logo span { color: var(--accent-gold); text-shadow: 0 0 8px var(--accent-gold); }
-        .container { max-width: 550px; margin: 30px auto; padding: 0 20px; }
-
-        /* Forms */
-        .auth-card { background: var(--card-bg); border-radius: 16px; padding: 30px; border: 1px solid #22222a; box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
-        .auth-card h2 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; margin-bottom: 20px; text-align: center; color: var(--accent-gold); }
-        .form-group { margin-bottom: 18px; }
-        .form-group label { display: block; font-size: 1rem; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; font-weight: 600; }
-        .form-group input, .form-group select { width: 100%; background: var(--input-bg); border: 1px solid #2d2d38; padding: 12px; font-size: 1.1rem; color: #fff; border-radius: 8px; }
-        .form-group input:focus { border-color: var(--accent-neon); outline: none; }
-        .auth-toggle { text-align: center; margin-top: 15px; color: var(--text-muted); }
-        .auth-toggle span { color: var(--accent-neon); cursor: pointer; font-
+</html>
 
