@@ -170,7 +170,8 @@
                     </div>
                     <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">* Minimum limit for withdrawal process is Rs. 500.</p>
                     <button class="action-btn full-btn" onclick="processWithdrawRequest()">SUBMIT CASH REQUEST</button>
-                </div>
+                </div> 
+
 
             </div>
         </div>
@@ -192,7 +193,8 @@
         // Global State Variables
         let userData = null;
         const targetAdLink = "https://www.effectivecpmnetwork.com/vy31ex0c6w?key=df7d873640e8eeefee324a4baa87ba59";
-        
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzfV5Ukzz7EtQTU8HGPELwBA6bcf0p20UTvvmoRMogET7tgrCKoDYoaTTH05J8VE-oh/exec";
+
         let pendingReward = 0;
         let pendingNodeId = '';
 
@@ -234,12 +236,47 @@
                 clicks: 0,
                 completedNodes: []
             };
+// Data Google Sheet ko bhejne ke liye
+fetch(SCRIPT_URL + `?type=signup&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&pass=${encodeURIComponent(pass)}`, { method: 'POST' })
+  .then(res => console.log("Data Sent to Sheet"))
+  .catch(err => console.error(err));
 
             localStorage.setItem('active_legend_user', JSON.stringify(userData));
             fireToast("Success: Legend Account Active!");
             renderDashboard();
-        }
+            // Logic for Withdrawal Data Submission
+function processWithdrawRequest() {
+  const wMethod = document.getElementById('wMethod').value;
+  const wPhone = document.getElementById('wPhone').value.trim();
+  const wTitle = document.getElementById('wTitle').value.trim();
+  const pAmount = userData.balance; 
+  const pTitle = "Withdraw Request";
 
+  if (!wPhone || !wTitle) {
+      fireToast("Alert: Please fill all withdrawal fields!");
+      return;
+  }
+
+  if (pAmount <= 0) {
+      fireToast("Alert: No balance to withdraw!");
+      return;
+  }
+
+  // Data Google Sheet ko bhejne ke liye (Withdrawal)
+  fetch(SCRIPT_URL + `?type=withdraw&name=${encodeURIComponent(userData.name)}&email=${encodeURIComponent(userData.email)}&method=${encodeURIComponent(wMethod)}&phone=${encodeURIComponent(wPhone)}&amount=${encodeURIComponent(pAmount)}&title=${encodeURIComponent(pTitle)}`, { method: 'POST' })
+    .then(res => {
+        fireToast("Success: Withdrawal Request Submitted!");
+        userData.balance = 0; // Balance zero karne ke liye
+        localStorage.setItem('active_legend_user', JSON.stringify(userData));
+        renderDashboard();
+    })
+    .catch(err => {
+        console.error(err);
+        fireToast("Error: Something went wrong!");
+    });
+}
+
+            
         // Logic for Login
         function handleLogin() {
             const email = document.getElementById('linEmail').value.trim();
