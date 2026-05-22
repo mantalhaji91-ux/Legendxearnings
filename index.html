@@ -128,7 +128,7 @@
                 <div class="user-title" id="profileName">LEGEND USER</div>
                 
                 <div class="main-stats">
-                    <div class="stat-card"><div class="stat-title">Available Cash</div><div class="stat-number" id="userBalance">Rs. 0</div></div>
+                    <div class="stat-card"><div class="stat-title">Available Cash</div><div class="stat-number" id="userBalance">points. 0</div></div>
                     <div class="stat-card"><div class="stat-title">Ads Authenticated</div><div class="stat-number" id="userClicks">0/3</div></div>
                 </div>
 
@@ -139,16 +139,16 @@
 
                 <div id="tabTasksArea">
                     <div class="task-node" id="node1">
-                        <div class="task-meta"><h4>Sponsor Video Link</h4><p>Payout: Rs. 30</p></div>
-                        <button class="action-btn" onclick="executeAdView('node1', 30)">Launch Ad</button>
+                        <div class="task-meta"><h4>Sponsor Video Link</h4><p>Payout: points. 200</p></div>
+                        <button class="action-btn" onclick="executeAdView('node1', 200)">Launch Ad</button>
                     </div>
                     <div class="task-node" id="node2">
-                        <div class="task-meta"><h4>Premium Megabanner View</h4><p>Payout: Rs. 45</p></div>
-                        <button class="action-btn" onclick="executeAdView('node2', 45)">Launch Ad</button>
+                        <div class="task-meta"><h4>Premium Megabanner View</h4><p>Payout: points. 300</p></div>
+                        <button class="action-btn" onclick="executeAdView('node2', 300)">Launch Ad</button>
                     </div>
                     <div class="task-node" id="node3">
-                        <div class="task-meta"><h4>Crypto Partner Visit</h4><p>Payout: Rs. 60</p></div>
-                        <button class="action-btn" onclick="executeAdView('node3', 60)">Launch Ad</button>
+                        <div class="task-meta"><h4>Crypto Partner Visit</h4><p>Payout: points. 350</p></div>
+                        <button class="action-btn" onclick="executeAdView('node3', 350)">Launch Ad</button>
                     </div>
                 </div>
 
@@ -168,7 +168,7 @@
                         <label>Account Holder Title</label>
                         <input type="text" id="wTitle" placeholder="Full account name">
                     </div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">* Minimum limit for withdrawal process is Rs. 500.</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">* Minimum limit for withdrawal process is points. 3000.</p>
                     <button class="action-btn full-btn" onclick="processWithdrawRequest()">SUBMIT CASH REQUEST</button>
                 </div> 
 
@@ -254,12 +254,11 @@ function processWithdrawRequest() {
 
   if (!wPhone || !wTitle) {
       fireToast("Alert: Please fill all withdrawal fields!");
-      return;
-  }
+      retif (pAmount < 3000) {
+    fireToast("Alert: Minimum 3000 Points required to withdraw!");
+    return;
+}
 
-  if (pAmount <= 0) {
-      fireToast("Alert: No balance to withdraw!");
-      return;
   }
 
   // Data Google Sheet ko bhejne ke liye (Withdrawal)
